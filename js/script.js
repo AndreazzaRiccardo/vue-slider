@@ -29,7 +29,7 @@ createApp ({
         return {
             slides,
             activeIndex: 0,
-            myInterval: setInterval(this.showNext, 1000),
+            myInterval: setInterval(this.showNext, 2000),
         };
     },
     created() {
@@ -42,14 +42,11 @@ createApp ({
         showPrev: function() {
             this.activeIndex === 0 ? this.activeIndex = this.slides.length - 1 : this.activeIndex--;
         },
-        showThis: function() {
-            
-        },
         mouseOver: function() {
             clearInterval(this.myInterval);
         },
         mouseLeave: function() {
-            this.myInterval = setInterval(this.showNext, 1000);
+            this.myInterval = setInterval(this.showNext, 2000);
         }
     }
 }).mount("#app");

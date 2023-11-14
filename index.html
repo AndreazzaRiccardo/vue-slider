@@ -28,7 +28,7 @@
                 <div class="thumbs" v-on:mouseover="mouseOver" v-on:mouseleave="mouseLeave">
                     <div class="prev" @click="showPrev"></div>
                     <div class="next" @click="showNext"></div>
-                    <div class="thumb" v-for="(object, index) in slides" :class="index === activeIndex ? 'active' : ''" @click="showThis">
+                    <div class="thumb" v-for="(object, index) in slides" :class="index === activeIndex ? 'active' : ''" @click="activeIndex = index">
                         <img :src="object.image" :alt="object.title"/>
                     </div>
                 </div>
