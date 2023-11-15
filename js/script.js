@@ -29,11 +29,11 @@ createApp ({
         return {
             slides,
             activeIndex: 0,
-            myInterval: setInterval(this.showNext, 2000),
+            myInterval: null
         };
     },
     created() {
-        this.myInterval
+        this.startAutoplay();
     },
     methods: {
         showNext: function() {
@@ -42,11 +42,15 @@ createApp ({
         showPrev: function() {
             this.activeIndex === 0 ? this.activeIndex = this.slides.length - 1 : this.activeIndex--;
         },
-        mouseOver: function() {
+        stopAutoplay: function() {
             clearInterval(this.myInterval);
+            this.timer = null;
         },
-        mouseLeave: function() {
-            this.myInterval = setInterval(this.showNext, 2000);
+        startAutoplay: function() {
+            this.myInterval = setInterval(this.showNext, 3000);
+        },
+        showThis: function(index) {
+            this.activeIndex = index;
         }
     }
 }).mount("#app");
